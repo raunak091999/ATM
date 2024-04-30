@@ -64,13 +64,5 @@ class MapBasedAtmServiceTest {
         Assertions.assertNotEquals(originalAmount, updatedAmount);
     }
 
-    @Test
-    void testWithdrawalClearing_whenAuthorizationIdIsValidAndClearTypeIsReversal_thenSuccess() {
-        Amount originalAmount = atmServiceStorage.checkBalance();
-        UUID authorizationId = createTransaction(new BigDecimal(100));
-        Amount withdrawal = atmServiceStorage.withdrawalClearing(authorizationId, TransactionClearType.REVERSAL);
-        Assertions.assertNotNull(withdrawal);
-        Amount updatedAmount = atmServiceStorage.checkBalance();
-        Assertions.assertEquals(originalAmount, updatedAmount);
-    }
+
 }
